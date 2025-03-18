@@ -34,10 +34,11 @@ class LangBotPlugin(BasePlugin):
     # 当收到个人消息时触发
     @handler(PersonMessageReceived)
     async def person_message_received(self, ctx: EventContext):
-        msgChain = ctx.event.message_chain  # 这里的 event 即为 PersonMessageReceived 的对象
-        self.ap.logger.info(ctx.event)        
-        # 阻止该事件默认行为（向接口获取回复）
-        ctx.prevent_default()
+        if ctx.MsgType == 49:
+            friend_msg = ctx.event.FriendMessage          
+            self.ap.logger.info(friend_msg)        
+            # 阻止该事件默认行为（向接口获取回复）
+            ctx.prevent_default()
 
     # 当收到群消息时触发
     @handler(GroupNormalMessageReceived)
