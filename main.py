@@ -1,5 +1,7 @@
 from pkg.plugin.context import register, handler, llm_func, BasePlugin, APIHost, EventContext
 from pkg.plugin.events import *  # 导入事件类
+from pkg.platform.types import *
+import json
 
 
 # 注册插件
@@ -14,7 +16,7 @@ class LangBotPlugin(BasePlugin):
     async def initialize(self):
         pass
 
-    # 当收到个人消息时触发
+    # 当收到个人普通消息时触发
     @handler(PersonNormalMessageReceived)
     async def person_normal_message_received(self, ctx: EventContext):
         msg = ctx.event.text_message  # 这里的 event 即为 PersonNormalMessageReceived 的对象
@@ -28,6 +30,12 @@ class LangBotPlugin(BasePlugin):
 
             # 阻止该事件默认行为（向接口获取回复）
             ctx.prevent_default()
+
+    # 当收到个人消息时触发
+    @handler(PersonMessageReceived)
+    async def person_message_received(self, ctx: EventContext):
+        msgChain = ctx.event.message_chain  # 这里的 event 即为 PersonMessageReceived 的对象
+        self.ap.logger.info(json.dumps(msgChain))        
 
     # 当收到群消息时触发
     @handler(GroupNormalMessageReceived)
