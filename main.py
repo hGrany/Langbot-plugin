@@ -35,7 +35,7 @@ class LangBotPlugin(BasePlugin):
     @handler(PersonMessageReceived)
     async def person_message_received(self, ctx: EventContext):
         msgChain = ctx.event.message_chain  # 这里的 event 即为 PersonMessageReceived 的对象
-        self.ap.logger.info(json.dumps(msgChain))        
+        self.ap.logger.info(json.dumps(ctx.event))        
 
     # 当收到群消息时触发
     @handler(GroupNormalMessageReceived)
