@@ -35,8 +35,8 @@ class LangBotPlugin(BasePlugin):
     @handler(PersonMessageReceived)
     async def person_message_received(self, ctx: EventContext):
         if ctx.MsgType == 49:
-            friend_msg = ctx.event.FriendMessage
-            self.ap.logger.info(type(friend_msg))        
+            # friend_msg = ctx.event.FriendMessage
+            # self.ap.logger.info(type(friend_msg))        
             # 阻止该事件默认行为（向接口获取回复）
             ctx.prevent_default()
 
