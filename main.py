@@ -1,7 +1,7 @@
 from pkg.plugin.context import register, handler, llm_func, BasePlugin, APIHost, EventContext
 from pkg.plugin.events import *  # 导入事件类
 from pkg.platform.types import *
-import json
+import xml.etree.ElementTree as et
 
 
 # 注册插件
@@ -35,8 +35,8 @@ class LangBotPlugin(BasePlugin):
     @handler(PersonMessageReceived)
     async def person_message_received(self, ctx: EventContext):
         if ctx.MsgType == 49:
-            friend_msg = ctx.event.FriendMessage          
-            self.ap.logger.info(friend_msg.msg.appmsg)        
+            friend_msg = ctx.event.FriendMessage
+            self.ap.logger.info(type(friend_msg))        
             # 阻止该事件默认行为（向接口获取回复）
             ctx.prevent_default()
 
