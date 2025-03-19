@@ -34,9 +34,11 @@ class LangBotPlugin(BasePlugin):
     # 当收到个人消息时触发
     @handler(PersonMessageReceived)
     async def person_message_received(self, ctx: EventContext):
-        self.ap.logger.info(ctx.event)
-        # 阻止该事件默认行为（向接口获取回复）
-        ctx.prevent_default()
+        if ctx.event.source_platform_object["Data"]["MsgType"] == 49:
+            self.ap.logger.info("微信视频消息")
+            self.ap.logger.info(ctx.event.source_platform_object["Data"]["Content"])       
+            # 阻止该事件默认行为（向接口获取回复）
+            ctx.prevent_default()
             
 
     # 当收到群消息时触发
