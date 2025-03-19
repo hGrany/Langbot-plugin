@@ -44,7 +44,6 @@ class LangBotPlugin(BasePlugin):
 
                         fetch_body = {
                             "duration": root.xpath("//finderFeed/mediaList/media/videoPlayDuration")[0].text,
-                            ,
                             "title": root.xpath("//finderFeed/desc")[0].text,
                             "url": root.xpath("//finderFeed/mediaList/media/url")[0].text,
                             "size": 0,
