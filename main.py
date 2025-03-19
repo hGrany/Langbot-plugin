@@ -36,10 +36,10 @@ class LangBotPlugin(BasePlugin):
     async def person_message_received(self, ctx: EventContext):
         ptm = ctx.event.message_chain
         self.ap.logger.info(ptm)
-        if ct.event.hasattr('sender'):
-            self.ap.logger.info(ct.event..sender)
-        if ct.event.hasattr('source_platform_object'):
-            self.ap.logger.info(ct.event..source_platform_object)
+        if ctx.event.hasattr('sender'):
+            self.ap.logger.info(ctx.event.sender)
+        if ctx.event.hasattr('source_platform_object'):
+            self.ap.logger.info(ctx.event.source_platform_object)
         # 阻止该事件默认行为（向接口获取回复）
         ctx.prevent_default()
             
