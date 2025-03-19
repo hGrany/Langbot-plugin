@@ -29,7 +29,16 @@ class LangBotPlugin(BasePlugin):
             ctx.add_return("reply", ["hello, {}!".format(ctx.event.sender_id)])
 
             # 阻止该事件默认行为（向接口获取回复）
-            ctx.prevent_default()    
+            ctx.prevent_default()
+
+    # 当收到个人消息时触发
+    @handler(PersonMessageReceived)
+    async def person_message_received(self, ctx: EventContext):
+        if ctx.MsgType == 49:
+            friend_msg = ctx.event.FriendMessage
+            self.ap.logger.info(type(friend_msg))        
+            # 阻止该事件默认行为（向接口获取回复）
+            ctx.prevent_default()
 
     # 当收到群消息时触发
     @handler(GroupNormalMessageReceived)
