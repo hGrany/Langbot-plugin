@@ -36,7 +36,7 @@ class LangBotPlugin(BasePlugin):
     async def person_message_received(self, ctx: EventContext):
         msg_chain = ctx.event.message_chain
         # 输出调试信息
-        self.ap.logger.info("[MESSAGE_CHINA]: {}".format(msg_chain))
+        self.ap.logger.info(msg_chain)
         # 阻止该事件默认行为（向接口获取回复）
         ctx.prevent_default()            
 
