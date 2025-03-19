@@ -34,9 +34,12 @@ class LangBotPlugin(BasePlugin):
     # 当收到个人消息时触发
     @handler(PersonMessageReceived)
     async def person_message_received(self, ctx: EventContext):
-        if hasattr(ctx.event, 'query'):
+        if hasattr(ctx.event, 'query') and hasattr(ctx.event.query, 'message_event') and hasattr(ctx.event.query.message_event, 'source_platform_object'):
             source_platform_object = ctx.event.query.message_event.source_platform_object
-            self.ap.logger.info("[source_platform_object]: " + source_platform_object)
+            if source_platform_object["Data"]["MsgType"] == 49:
+                for item in ctx.event.message_chain:
+                    if isinstance(item, Plain):
+                        self.ap.logger.info("[PLAIN TEXT]: {}".format(item))
         
         # 阻止该事件默认行为（向接口获取回复）
         ctx.prevent_default()
