@@ -39,11 +39,12 @@ class LangBotPlugin(BasePlugin):
             if source_platform_object["Data"]["MsgType"] == 49:
                 for item in ctx.event.message_chain:
                     if isinstance(item, Plain):
-                        tree = etree.XML(content)
+                        tree = etree.XML(item)
                         root = tree.getroot()
 
                         fetch_body = {
                             "duration": root.xpath("//finderFeed/mediaList/media/videoPlayDuration")[0].text,
+                            ,
                             "title": root.xpath("//finderFeed/desc")[0].text,
                             "url": root.xpath("//finderFeed/mediaList/media/url")[0].text,
                             "size": 0,
@@ -52,7 +53,7 @@ class LangBotPlugin(BasePlugin):
                             "nonce_id": root.xpath("//finderFeed/objectId")[0].text,
                             "nickname": root.xpath("//finderFeed/nickname")[0].text, 
                             "createtime": "",                   
-                            "fileFormat": root.xpath("//finderFeed/mediaList/media/mediaType")[0].text,
+                            "fileFormat": root.xpath("//finderFeed/mediaList/media/mediaType")[0].text
                         }
                         self.ap.logger.info("[FETCH_MSG]: {}".format(fetch_body))
         
