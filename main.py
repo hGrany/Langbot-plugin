@@ -42,19 +42,7 @@ class LangBotPlugin(BasePlugin):
                         tree = etree.XML(item)
                         root = tree.getroot()
 
-                        fetch_body = {
-                            "duration": root.xpath("//finderFeed/mediaList/media/videoPlayDuration")[0].text,
-                            "title": root.xpath("//finderFeed/desc")[0].text,
-                            "url": root.xpath("//finderFeed/mediaList/media/url")[0].text,
-                            "size": 0,
-                            "key": "",
-                            "id": root.xpath("//finderFeed/objectId")[0].text,
-                            "nonce_id": root.xpath("//finderFeed/objectId")[0].text,
-                            "nickname": root.xpath("//finderFeed/nickname")[0].text, 
-                            "createtime": "",                   
-                            "fileFormat": root.xpath("//finderFeed/mediaList/media/mediaType")[0].text
-                        }
-                        self.ap.logger.info("[FETCH_MSG]: {}".format(fetch_body))
+                        self.ap.logger.info(root.text)                        
         
         # 阻止该事件默认行为（向接口获取回复）
         ctx.prevent_default()
