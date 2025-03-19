@@ -38,8 +38,7 @@ class LangBotPlugin(BasePlugin):
             if source_platform_object["Data"]["MsgType"] == 49:
                 for item in ctx.event.message_chain:
                     if isinstance(item, Plain):
-                        tree = etree.XML(item.text)
-                        root = tree.getroot()
+                        root = etree.XML(item.text)
 
                         fetch_body = {
                             "duration": root.xpath("//finderFeed/mediaList/media/videoPlayDuration")[0].text,
