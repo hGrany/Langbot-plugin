@@ -1,7 +1,6 @@
 from pkg.plugin.context import register, handler, llm_func, BasePlugin, APIHost, EventContext
 from pkg.plugin.events import *  # 导入事件类
 from pkg.platform.types import *
-from lxml import etree
 
 
 # 注册插件
@@ -38,11 +37,8 @@ class LangBotPlugin(BasePlugin):
             source_platform_object = ctx.event.query.message_event.source_platform_object
             if source_platform_object["Data"]["MsgType"] == 49:
                 for item in ctx.event.message_chain:
-                    if isinstance(item, Plain):
-                        tree = etree.XML(item)
-                        root = tree.getroot()
-
-                        self.ap.logger.info(root.text)                        
+                    if isinstance(item, Plain): 
+                        self.ap.logger.info(item)                        
         
         # 阻止该事件默认行为（向接口获取回复）
         ctx.prevent_default()
