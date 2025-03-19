@@ -34,10 +34,10 @@ class LangBotPlugin(BasePlugin):
     # 当收到个人消息时触发
     @handler(PersonMessageReceived)
     async def person_message_received(self, ctx: EventContext):
-        if hasattr(ctx.event, 'message_chain'):
-            self.ap.logger.info("[MESSAGE_CHAIN]: " + ctx.event.message_chain)
-        if hasattr(ctx.event, 'message_event'):
-            self.ap.logger.info("[MESSAGE_EVENT]: " + ctx.event.message_event)
+        # if hasattr(ctx.event, 'message_chain'):
+        #    self.ap.logger.info("[MESSAGE_CHAIN]: " + ctx.event.message_chain)
+        for attr, value in ctx.event.__dict__.items():
+            self.ap.logger.info("[ATTR]: " + attr + " = " + str(value))
         # 阻止该事件默认行为（向接口获取回复）
         ctx.prevent_default()
             
