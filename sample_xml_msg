@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<msg>
+  <appmsg appid="" sdkver="0">
+    <title>硅基视域的动态</title>
+    <des />
+    <action>view</action>
+    <type>51</type>
+    <showtype>0</showtype>
+    <content />
+    <url>https://support.weixin.qq.com/security/readtemplate?t=w_security_center_website/upgrade</url>
+    <dataurl />
+    <lowurl />
+    <lowdataurl />
+    <recorditem />
+    <thumburl />
+    <messageaction />
+    <laninfo />
+    <extinfo />
+    <sourceusername />
+    <sourcedisplayname />
+    <commenturl />
+    <appattach>
+      <totallen>0</totallen>
+      <attachid />
+      <emoticonmd5></emoticonmd5>
+      <fileext />
+      <aeskey></aeskey>
+    </appattach>
+    <webviewshared>
+      <publisherId />
+      <publisherReqId>0</publisherReqId>
+    </webviewshared>
+    <weappinfo>
+      <pagepath />
+      <username />
+      <appid />
+      <appservicetype>0</appservicetype>
+    </weappinfo>
+    <websearch />
+    <finderFeed>
+      <objectId>14614815379974330566</objectId>
+      <objectNonceId>13203912540240542459_4_20_13_1_1742229708921458</objectNonceId>
+      <feedType>4</feedType>
+      <nickname>硅基视域</nickname>
+      <username>v2_060000231003b20faec8c7e3881fcad7c906ed31b0770fee478787fd37ee0ba78c95bf929021@finder</username>
+      <authIconUrl />
+      <authIconType>0</authIconType>
+      <avatar>https://wx.qlogo.cn/finderhead/ver_1/Z9ia60l10rribfYJ0HEMk3z8P9Bn08dTnvxteB78vhj7iaPH4oWJjgt5FudIIbbgbKibosFkIlY9ZZLJTQnMtWKOXumXc7QsnOzODPIfGscriaGreekcvUxMwzgpKfR9qsDk8/0</avatar>
+      <desc>一键生成3D模型！哪款工具更强？#3D建模#3D动画#AIGC#AI工具#AI#人工智能</desc>
+      <mediaCount>1</mediaCount>
+      <localId>0</localId>
+      <bizUsername />
+      <bizNickname />
+      <bizAvatar />
+      <bizUsernameV2 />
+      <mediaList>
+        <media>
+          <thumbUrl><![CDATA[http://wxapp.tc.qq.com/251/20304/stodownload?encfilekey=WTva9YVXqXcSUicrMCercmDHmKYPBXC7evFiagjWH500cqJbYpTibpjsUKd0RFDDRibfhXMOoRU2dkjZ08DcrcnF5HaOYh2iahNs4CnwiaXdqJ875ES6VUn1cgTiavBpLjCB1d924bXzMBUlQM&hy=SZ&idx=1&m=920d0048ced95b2437bd99ab48bb5813&picformat=200&token=Cvvj5Ix3eeyD0TVgRZ2eExSOtnQquNWwkJ6oHLicxNx8zr3anscBicpia7l4th1Gl9BKD0a73km9OM2lLibcqsnhFCNdYF46M02xgVkWj65ics3IkMGdFMCKIUpTuvohPgny2CRNbRMZKJWIKC3kbF8hKms1NvQbb5S7h&ctsc=2-20]]></thumbUrl>
+          <videoPlayDuration>64</videoPlayDuration>
+          <url><![CDATA[http://wxapp.tc.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsqchXNh0Gf3YiaX8QrZIfDc4Xab5KzWlibDnT72Bzv4EREnZG2tEZrDKffePY5JOxgXpswS1vHIlJ7p6zl4JBO9DQUr48lfL5lEL7YaQcu46W&hy=SZ&idx=1&m=&uzid=7a224&token=6xykWLEnztLFU5qOA2qKKdU4EeJRfaJHl0ftocLANeqb8yM6LSlsoNZmjKpg258UpjYtrhuAkZFWicYTKvwZG2PmC2KUwGDbkjTicN5a2mgJlPFGwHgxmwDNWtLIYnGTwTcF9rTSxKibQl3ME4D6ws1jbgojvFiadR4crHrmic8yBkeI&basedata=CAASBnhXVDE1NxoGeFdUMTExGgZ4V1QxMTIaBnhXVDE1NhoGeFdUMTEzGgZ4V1QxNTcaBnhXVDE1OCIYCgoKBnhXVDExMhABCgoKBnhXVDE1NxABKgUIvR4QAA&sign=DUkTezesTg-JHCI8xxn02lSCwZh-0lYaH0XJAm2Vd6Tf-M-JWC316I5B40vfPp1oAyTgAAbkhunANbi-3N_B6g&ctsc=20&extg=48b800&svrbypass=AAuL%2FQsFAAABAAAAAADYXx8maeW%2FVbjdz1DYZxAAAADnaHZTnGbFfAj9RgZXfw6VS4eUY4AYeR7hlM%2BgtewEfPyRwDJ673PN51z2yMQdnAxI4Sxsp8gM97U%3D&svrnonce=1742229711]]></url>
+          <coverUrl><![CDATA[http://wxapp.tc.qq.com/251/20304/stodownload?encfilekey=WTva9YVXqXcSUicrMCercmDHmKYPBXC7evFiagjWH500cqJbYpTibpjsUKd0RFDDRibfhXMOoRU2dkjZ08DcrcnF5HaOYh2iahNs4CnwiaXdqJ875ES6VUn1cgTiavBpLjCB1d924bXzMBUlQM&hy=SZ&idx=1&m=920d0048ced95b2437bd99ab48bb5813&picformat=200&token=Cvvj5Ix3eeyD0TVgRZ2eExSOtnQquNWwkJ6oHLicxNx8zr3anscBicpia7l4th1Gl9BKD0a73km9OM2lLibcqsnhFCNdYF46M02xgVkWj65ics3IkMGdFMCKIUpTuvohPgny2CRNbRMZKJWIKC3kbF8hKms1NvQbb5S7h&ctsc=2-20]]></coverUrl>
+          <height><![CDATA[1920]]></height>
+          <width><![CDATA[1088]]></width>
+          <mediaType><![CDATA[4]]></mediaType>
+          <fullCoverUrl><![CDATA[]]></fullCoverUrl>
+        </media>
+      </mediaList>
+    </finderFeed>
+  </appmsg>
+  <fromusername>gaoyang922952</fromusername>
+  <scene>0</scene>
+  <appinfo>
+    <version>1</version>
+    <appname />
+  </appinfo>
+  <commenturl />
+</msg>
