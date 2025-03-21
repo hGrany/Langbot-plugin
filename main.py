@@ -64,7 +64,7 @@ class LangBotPlugin(BasePlugin):
                         else:
                             result = response.json()
                             self.ap.logger.info("transcription succ: {}".format(result))
-                            ctx.add_return("reply", [result.desc])        
+                            ctx.add_return("reply", [result['desc']])        
         # 阻止该事件默认行为（向接口获取回复）
         ctx.prevent_default()            
 
