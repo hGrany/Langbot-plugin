@@ -58,7 +58,7 @@ class LangBotPlugin(BasePlugin):
                         params = {
                             "video_info": item.text
                         }
-                        response = requests.get(service_url, params=params)
+                        response = requests.post(service_url, params=params)
                         if response.status_code != 200: 
                             self.ap.logger.warning("unable to transcription video to text. code={}".format(response.status_code))
                         else:
