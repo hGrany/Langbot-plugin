@@ -37,11 +37,12 @@ class LangBotPlugin(BasePlugin):
         source_platform_object = ctx.event.query.message_event.source_platform_object
         if source_platform_object["Data"]["MsgType"] == 49:
             # 输出调试信息
-            self.ap.logger.info("source_platform_object: {}".format(source_platform_object))
+            self.ap.logger.debug("source_platform_object: {}".format(source_platform_object))
 
             await ctx.reply( ["video message"])
             # 回复消息 "hello, <发送者id>!"
-            ctx.add_return("reply", ["thank you, {}!".format(ctx.event.sender_id)])
+            ctx.add_return("reply", platform_types.MessageChain([
+                        platform_types.Plain("thank you, {}!".format(ctx.event.sender_id))]))
 
             # 阻止该事件默认行为（向接口获取回复）
             ctx.prevent_default()
