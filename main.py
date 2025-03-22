@@ -38,8 +38,29 @@ class LangBotPlugin(BasePlugin):
         if source_platform_object["Data"]["MsgType"] == 49:
             # 输出调试信息
             self.ap.logger.debug("source_platform_object: {}".format(source_platform_object))
+            for item in ctx.event.message_chain:
+                if isinstance(item, Plain):
+                    root = etree.XML(item.text)
+                    msg_body = {
+                        "title": root.xpath("//finderFeed/desc")[0].text,
+                        "url": root.xpath("//finderFeed/mediaList/media/url")[0].text,
+                        "id": root.xpath("//finderFeed/objectId")[0].text,
+                        "nonce_id": root.xpath("//finderFeed/objectId")[0].text,
+                        "nickname": root.xpath("//finderFeed/nickname")[0].text, 
+                    }
+                    self.ap.logger.info("[{}] transcription video message. info={}".format(ctx.event.sender_id, msg_body))
 
-            await ctx.reply(MessageChain([Plain("thank you, {}!".format(ctx.event.sender_id))]))
+                    service_url = "https://u185166-9a3e-d53e77a0.westc.gpuhub.com:8443/api/excel/api/wechat/parser"
+                    params = {
+                        "video_info": item.text
+                    }
+                    response = requests.post(service_url, json=params)
+                    if response.status_code != 200: 
+                        self.ap.logger.warning("[{}] unable to transcription video to text. code={}".format(ctx.event.sender_id, response.status_code))
+                    else:
+                        result = response.json()
+                        self.ap.logger.info("[{}] transcription succ: {}".format(ctx.event.sender_id, result))
+                        await ctx.reply(MessageChain([Plain("Plain Text={}".format(result['desc']))]))
 
             # 阻止该事件默认行为（向接口获取回复）
             ctx.prevent_default()
