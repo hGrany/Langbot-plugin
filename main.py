@@ -39,9 +39,7 @@ class LangBotPlugin(BasePlugin):
             # 输出调试信息
             self.ap.logger.debug("source_platform_object: {}".format(source_platform_object))
 
-            await ctx.reply( ["video message"])
-            # 回复消息 "hello, <发送者id>!"
-            ctx.add_return("reply", MessageChain([Plain("thank you, {}!".format(ctx.event.sender_id))]))
+            await ctx.reply(MessageChain([Plain("thank you, {}!".format(ctx.event.sender_id))]))
 
             # 阻止该事件默认行为（向接口获取回复）
             ctx.prevent_default()
