@@ -36,38 +36,12 @@ class LangBotPlugin(BasePlugin):
     async def person_message_received(self, ctx: EventContext):
         if hasattr(ctx.event, 'query') and hasattr(ctx.event.query, 'message_event') and hasattr(ctx.event.query.message_event, 'source_platform_object'):
             source_platform_object = ctx.event.query.message_event.source_platform_object
-            if source_platform_object["Data"]["MsgType"] == 49:
-                for item in ctx.event.message_chain:
-                    if isinstance(item, Plain):
-                        root = etree.XML(item.text)
-                        fetch_body = {
-                            "duration": root.xpath("//finderFeed/mediaList/media/videoPlayDuration")[0].text,
-                            "title": root.xpath("//finderFeed/desc")[0].text,
-                            "url": root.xpath("//finderFeed/mediaList/media/url")[0].text,
-                            "size": 0,
-                            "key": "",
-                            "id": root.xpath("//finderFeed/objectId")[0].text,
-                            "nonce_id": root.xpath("//finderFeed/objectId")[0].text,
-                            "nickname": root.xpath("//finderFeed/nickname")[0].text, 
-                            "createtime": "",                   
-                            "fileFormat": root.xpath("//finderFeed/mediaList/media/mediaType")[0].text
-                        }
-                        self.ap.logger.info("[FETCH_MSG]: {}".format(fetch_body))
-
-                        service_url = "https://u185166-9a3e-d53e77a0.westc.gpuhub.com:8443/api/excel/api/wechat/parser"
-                        params = {
-                            "video_info": item.text
-                        }
-                        response = requests.post(service_url, json=params)
-                        if response.status_code != 200: 
-                            self.ap.logger.warning("unable to transcription video to text. code={}".format(response.status_code))
-                        else:
-                            result = response.json()
-                            self.ap.logger.info("transcription succ: {}".format(result))
-                            ctx.add_return("reply", [result['desc']])        
+                 
             # 阻止该事件默认行为（向接口获取回复）
             ctx.prevent_default()            
 
+            # 输出调试信息
+            self.ap.logger.debug("source_platform_object: {}".format(source_platform_object))
     # 当收到群消息时触发
     @handler(GroupNormalMessageReceived)
     async def group_normal_message_received(self, ctx: EventContext):
